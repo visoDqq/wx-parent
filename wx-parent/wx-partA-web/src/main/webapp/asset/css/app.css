@@ -1,0 +1,65 @@
+html,body{
+	color: #505050;
+	line-height:1.75em;
+	background:#ebebeb;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+}
+.main-header{
+	text-align:center;
+	padding:42px 0;
+	background:#ffffff;
+}
+.main-header .branding{
+	font-size:3.5em;
+	color:#303030;
+}
+
+a{
+	color:e67e62;
+	outline:none;
+	text-decoration:none;
+}
+
+.main-header .branding img{
+	max-width:100%;
+}
+
+a:active,a:focus,a img{
+	outline:none;
+}
+
+.main-navigation{
+	text-align:center;
+	background:#ffffff;
+	border-top:1px solid #ebebeb;
+	border-bottom:3px solid #e1e1e1;
+	margin-bottom:35px;
+}
+.main-navigation .menu{
+	padding:0;
+	margin:0;
+}
+
+.main-navigation .menu li.nav-current{
+	border-bottom:3px solid #e67e22;
+	margin-bottom:-2px;
+}
+.main-navigation .menu li{
+	list-style:none;
+	display:inline-block;
+	position:relative;
+}
+
+.main-navigation .menu li a{
+	color:#505050;
+	line-height:4em;
+	diplay:block;
+	padding:0 21px;
+}
+
+.main-navigation .menu li a:hover{
+	color:#e67e22;
+	text-decoration:none;
+	outline:none;
+}
+
