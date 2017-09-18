@@ -10,7 +10,7 @@ public class BeanHelper {
 
 	
 	/**
-	 * ¶¨ÒåbeanÓ³Éä£¨ÓÃÓÚ´æ·ÅbeanÀàÓëbeanÊµÀıµÄÓ³Éä¹ØÏµ£©
+	 * ï¿½ï¿½ï¿½ï¿½beanÓ³ï¿½ä£¨ï¿½ï¿½ï¿½Ú´ï¿½ï¿½beanï¿½ï¿½ï¿½ï¿½beanÊµï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½Ïµï¿½ï¿½
 	 */
 	private static final Map<Class<?>, Object> BEAN_MAP = new HashMap<Class<?>, Object>();
 	
@@ -23,7 +23,7 @@ public class BeanHelper {
 	}
 	
 	/**
-	 * »ñµÃbeanÓ³Éä
+	 * ï¿½ï¿½ï¿½beanÓ³ï¿½ï¿½
 	 * @return
 	 */
 	public static Map<Class<?>, Object> getBeanMap(){

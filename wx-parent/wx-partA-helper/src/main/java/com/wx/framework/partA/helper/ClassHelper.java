@@ -1,10 +1,12 @@
 package com.wx.framework.partA.helper;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
 import com.wx.framework.partA.annotation.Controller;
 import com.wx.framework.partA.annotation.Service;
+import com.wx.framework.partA.proxy.AspectProxy;
 import com.wx.framework.partA.utils.ClassUtil;
 
 public final class ClassHelper {
@@ -17,7 +19,7 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞÀà
+	 * ï¿½ï¿½È¡Ó¦ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public static Set<Class<?>> getClassSet(){
@@ -25,7 +27,7 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞServiceÀà
+	 * ï¿½ï¿½È¡Ó¦ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Serviceï¿½ï¿½
 	 * @return
 	 */
 	public static Set<Class<?>> getServiceClassSet(){
@@ -39,7 +41,7 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞControllerÀà
+	 * ï¿½ï¿½È¡Ó¦ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Controllerï¿½ï¿½
 	 * @return
 	 */
 	public static Set<Class<?>> getControllerClassSet(){
@@ -53,7 +55,7 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞbeanÀà
+	 * ï¿½ï¿½È¡Ó¦ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½beanï¿½ï¿½
 	 * @return
 	 */
 	public static Set<Class<?>> getBeanClassSet(){
@@ -64,7 +66,7 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * »ñÈ¡Ó¦ÓÃ°üÃûÏÂËùÓĞ¼Ì³Ğ×ÔÄ³¸öÀàµÄËùÓĞ×ÓÀà
+	 * ï¿½ï¿½È¡Ó¦ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¼Ì³ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param superClass
 	 * @return
 	 */
@@ -77,5 +79,20 @@ public final class ClassHelper {
 		}
 		return classes;
 	}
-	
+
+	public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> clazz){
+		Set<Class<?>> classes = new HashSet<>();
+		for (Class<?> cls : CLASS_SET){
+			if (cls.isAnnotationPresent(clazz)){
+				classes.add(cls);
+			}
+		}
+		return classes;
+	}
+
+	public static void main(String[] args){
+		Set<Class<?>> classes = getClassSetbySuper(AspectProxy.class);
+		System.out.println(classes);
+		System.out.println(CLASS_SET);
+	}
 }

@@ -15,6 +15,7 @@
     <module>wx-partA-helper</module>
     <module>wx-partA-bean</module>
     <module>wx-partA-model</module>
+      <module>wx-partA-proxy</module>
   </modules>
   
   
@@ -114,6 +115,11 @@
 	    <artifactId>jackson-databind</artifactId>
 	    <version>2.9.0</version>
 	</dependency>
+	  <dependency>
+		  <groupId>cglib</groupId>
+		  <artifactId>cglib</artifactId>
+		  <version>2.2.2</version>
+	  </dependency>
   </dependencies>
   
 
