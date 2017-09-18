@@ -3,18 +3,21 @@ package com.wx.framework.partA.utils;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
+import java.net.JarURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 public class ClassUtil {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Set<Class<?>> set = getClassSet("com.wx.framework.partA.utils");
+		Set<Class<?>> set = getClassSet("com.wx.framework.partA");
 		for (Iterator<Class<?>> it = set.iterator();it.hasNext(); ) {
 			System.out.println(it.next());
 		}
@@ -52,6 +55,22 @@ public class ClassUtil {
 					if ("file".equals(protocol)) {
 						filePath = URLDecoder.decode(url.getPath().replaceAll("%20", " "),"utf-8");
 						addClass(filePath,classSet,packageName);
+					}else if ("jar".equals(protocol)){
+						JarURLConnection jarURLConnection = (JarURLConnection) url.openConnection();
+						if (jarURLConnection != null){
+							JarFile jarFile = jarURLConnection.getJarFile();
+							if (jarFile != null){
+								Enumeration<JarEntry> jarEntrys = jarFile.entries();
+								while (jarEntrys.hasMoreElements()){
+									JarEntry jarEntry = jarEntrys.nextElement();
+									String jarName = jarEntry.getName();
+									if (jarName.endsWith(".class")){
+										String className = jarName.substring(0,jarName.lastIndexOf(".")).replaceAll("/",".");
+										doAddClass(className,classSet);
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -59,7 +78,6 @@ public class ClassUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return classSet;
 		
 	}

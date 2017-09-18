@@ -1,4 +1,4 @@
-package com.wx.framework.partA.web;
+package com.wx.framework.partA.chapter.web;
 
 
 import com.wx.framework.partA.annotation.Action;

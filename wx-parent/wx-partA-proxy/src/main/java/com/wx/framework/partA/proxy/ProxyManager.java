@@ -3,6 +3,8 @@ package com.wx.framework.partA.proxy;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -12,8 +14,10 @@ import java.util.List;
  */
 public class ProxyManager {
 
-    public static Object createProxy(final Class<?> targetClass, final List<Proxy> proxyList){
-        return Enhancer.create(targetClass, new MethodInterceptor() {
+    private final static Logger logger = LoggerFactory.getLogger(ProxyManager.class);
+
+    public static <T> T createProxy(final Class<?> targetClass, final List<Proxy> proxyList) {
+        return (T) Enhancer.create(targetClass, new MethodInterceptor() {
             @Override
             public Object intercept(Object targetObject, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
                 return new ProxyChain(targetClass,targetObject,method,methodProxy,objects,proxyList).doProxyChain();
@@ -25,6 +29,7 @@ public class ProxyManager {
         return Enhancer.create(targetClass, new MethodInterceptor() {
             @Override
             public Object intercept(Object targetObject, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+                logger.info("================");
                 System.out.println("123123123213");
                 Object result = methodProxy.invokeSuper(targetObject,objects);
                 System.out.println("~~~~~~~~123");

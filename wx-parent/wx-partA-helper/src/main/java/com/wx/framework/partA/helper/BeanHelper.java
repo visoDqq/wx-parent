@@ -37,7 +37,10 @@ public class BeanHelper {
 		return  (T) BEAN_MAP.get(cls);
 	}
 	
-	
+
+	public static void setBean(Class<?> cls, Object targetObject){
+		BEAN_MAP.put(cls,targetObject);
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

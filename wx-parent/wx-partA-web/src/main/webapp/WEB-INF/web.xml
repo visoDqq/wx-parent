@@ -4,7 +4,14 @@
     version="2.4">
     
   <display-name>wx-partA-web</display-name>
-  
+  <servlet>
+    <servlet-name>rest</servlet-name>
+    <servlet-class>com.wx.framework.partA.DispatcherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>rest</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
   <!-- CAS SSO -->
 <!--    <filter> -->
 <!--        <filter-name>CAS Authentication Filter</filter-name> -->

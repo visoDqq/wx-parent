@@ -26,16 +26,18 @@ import com.wx.framework.partA.helper.ControllerHelper;
 import com.wx.framework.partA.helper.HelperLoader;
 import com.wx.framework.partA.utils.JsonUtil;
 import com.wx.framework.partA.utils.ReflectionUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @WebServlet(urlPatterns="/*", loadOnStartup=0)
 public class DispatcherServlet extends HttpServlet{
 	
 	private static final long serialVersionUID = 5343276773673885864L;
 
+	private final static Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
 
 	@Override
 	public void init(ServletConfig servletConfig) throws ServletException {
-		//初始化相关helper类
 		HelperLoader.init();
 		ServletContext servletContext = servletConfig.getServletContext();
 		ServletRegistration jspServlet = servletContext.getServletRegistration("jsp");
@@ -50,11 +52,9 @@ public class DispatcherServlet extends HttpServlet{
 			throws ServletException, IOException {
 		String requestMethod = req.getMethod().toLowerCase();
 		String requestPath = req.getPathInfo();
-		//获取action处理器
 		Handler handler = ControllerHelper.getHandler(requestMethod, requestPath);
 		
 		if (handler != null) {
-			//获取action的类和调用方法
 			Class<?> controllerClass = handler.getControllerClass();
 			Method controllerMethod = handler.getActionMethod();
 			Object controllerClassBean = BeanHelper.getBean(controllerClass);
@@ -80,6 +80,7 @@ public class DispatcherServlet extends HttpServlet{
 					for (Map.Entry<String, Object> entry : model.entrySet() ) {
 						req.setAttribute(entry.getKey(), entry.getValue());
 					}
+					logger.info(ConfigHelper.getAppJspPath() + path);
 					System.out.println(ConfigHelper.getAppJspPath() + path);
 					req.getRequestDispatcher(ConfigHelper.getAppJspPath() + path).forward(req, resp);;
 					
