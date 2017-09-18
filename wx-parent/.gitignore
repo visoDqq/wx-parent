@@ -3,6 +3,7 @@
 /.classpath
 /.project
 .idea/
-main.iml
+*.iml
+/*.iml
 /log
 .DS_Store
