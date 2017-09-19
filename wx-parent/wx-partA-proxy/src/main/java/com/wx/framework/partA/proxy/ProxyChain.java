@@ -53,7 +53,7 @@ public class ProxyChain {
         if (index < proxyList.size()){
             result = proxyList.get(index++).doProxy(this);
         }else{
-            result = methodProxy.invokeSuper(targetClass,params);
+            result = methodProxy.invokeSuper(targetObject,params);
         }
         return result;
     }

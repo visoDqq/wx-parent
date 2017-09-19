@@ -8,6 +8,8 @@ import com.wx.framework.partA.bean.Param;
 import com.wx.framework.partA.bean.View;
 import com.wx.framework.partA.model.Resultbean;
 
+import java.util.List;
+
 @Controller
 public class IndexController {
 
@@ -19,9 +21,11 @@ public class IndexController {
 	}
 	
 	@Action("get:/json")
-	public Data index2(Param param){
-		Data data = new Data();
-		data.setModel(new Resultbean<String>(null));
-		return data;
+	public Resultbean<String> index2(Param param){
+//		Data data = new Data();
+//		data.setModel(new Resultbean<String>(null));
+		List list = null;
+//		list.add("1");
+		return new Resultbean<String>(null);
 	}
 }

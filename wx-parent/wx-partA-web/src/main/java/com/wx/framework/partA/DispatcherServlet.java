@@ -96,6 +96,13 @@ public class DispatcherServlet extends HttpServlet{
 					writer.flush();
 					writer.close();
 				}
+			}else {
+				resp.setContentType("application/json");
+				resp.setCharacterEncoding("UTF-8");
+				PrintWriter writer = resp.getWriter();
+				writer.write(JsonUtil.toJson(result));
+				writer.flush();
+				writer.close();
 			}
 			
 		}
