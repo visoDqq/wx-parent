@@ -16,7 +16,6 @@ public class ReflectionUtil {
 	
 	
 	/**
-	 * 创建实例
 	 * @param cls
 	 * @return
 	 */
@@ -34,7 +33,7 @@ public class ReflectionUtil {
 		
 	}
 	/**
-	 * 调用方法
+	 * 锟斤拷锟矫凤拷锟斤拷
 	 * @param obj
 	 * @param method
 	 * @param args
@@ -60,7 +59,6 @@ public class ReflectionUtil {
 	}
 	
 	/**
-	 * 设置成员变量
 	 * @param obj
 	 * @param field
 	 * @param value

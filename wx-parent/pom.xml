@@ -16,15 +16,6 @@
     <module>wx-partA-bean</module>
     <module>wx-partA-model</module>
       <module>wx-partA-proxy</module>
-      <module>wx-partA-database</module>
-      <module>wx-partA-database</module>
-	  <module>wx-partA-database</module>
-	  <module>wx-partA-database</module>
-	  <module>wx-partA-database</module>
-	  <module>wx-partA-database</module>
-	  <module>w</module>
-	  <module>w</module>
-	  <module>wx-partA-database</module>
 	  <module>wx-partA-database</module>
   </modules>
   
@@ -131,9 +122,6 @@
 		  <version>2.2.2</version>
 	  </dependency>
   </dependencies>
-  
-
-
 	<!--   Compile -->
 	<build>  
     <plugins>  
@@ -142,8 +130,8 @@
             <artifactId>maven-compiler-plugin</artifactId>  
             <version>2.0.2</version>  
             <configuration>  
-                <source>1.7</source>  
-                <target>1.7</target>  
+                <source>1.8</source>
+                <target>1.8</target>
             </configuration>  
         </plugin>  
     </plugins>  

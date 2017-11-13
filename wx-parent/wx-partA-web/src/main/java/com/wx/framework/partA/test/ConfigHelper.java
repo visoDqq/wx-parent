@@ -9,7 +9,7 @@ public final class ConfigHelper {
         Properties prop = new Properties();     
         try{
         	InputStream in = ConfigHelper.class.getClassLoader().getResourceAsStream("wx-partA.properties");
-            prop.load(in);     ///加载属�?列表
+            prop.load(in);
             Iterator<String> it=prop.stringPropertyNames().iterator();
             while(it.hasNext()){
                 String key=it.next();

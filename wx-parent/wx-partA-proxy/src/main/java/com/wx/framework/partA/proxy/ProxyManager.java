@@ -1,10 +1,10 @@
 package com.wx.framework.partA.proxy;
 
+import com.wx.framework.partA.model.Resultbean;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class ProxyManager {
 
-    private final static Logger logger = LoggerFactory.getLogger(ProxyManager.class);
+    private final static Logger logger = Logger.getLogger(ProxyManager.class);
 
     public static <T> T createProxy(final Class<?> targetClass, final List<Proxy> proxyList) {
         return (T) Enhancer.create(targetClass, new MethodInterceptor() {
@@ -31,7 +31,8 @@ public class ProxyManager {
             public Object intercept(Object targetObject, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
                 logger.info("================");
                 System.out.println("123123123213");
-                Object result = methodProxy.invokeSuper(targetObject,objects);
+                Resultbean result = (Resultbean) methodProxy.invokeSuper(targetObject,objects);
+                Object r = result;
                 System.out.println("~~~~~~~~123");
                 return result;
             }
@@ -39,11 +40,13 @@ public class ProxyManager {
     }
 
     public static void main(String[] args){
+        Object o = createProxy2(ProxyManager.class);
         ProxyManager proxyManager = (ProxyManager) createProxy2(ProxyManager.class);
-        proxyManager.test();
+        System.out.println(proxyManager.test());;
     }
 
-    public void test(){
+    public Resultbean test(){
         System.out.println("~1231231231");
+        return new Resultbean(null);
     }
 }

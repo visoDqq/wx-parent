@@ -40,7 +40,6 @@ public class PropsUtil {
 	}
 	
 	/**
-	 * 获取字符串属性（默认为空字符串）
 	 * @param props
 	 * @param key
 	 * @return
@@ -50,7 +49,6 @@ public class PropsUtil {
 	}
 	
 	/**
-	 * 获取字符串属性（可指定默认值）
 	 * @param props
 	 * @param key
 	 * @param defaultValue
@@ -63,10 +61,27 @@ public class PropsUtil {
 		}
 		return value;
 	}
-	
-	
-	
-	
+
+
+	public static String propLoads(String fileName, String key){
+		Properties prop = null;
+		InputStream in = null;
+		String value = "";
+		try{
+			in = PropsUtil.class.getClassLoader().getResourceAsStream(fileName);
+			if (in == null){
+				throw new FileNotFoundException(fileName + " is not found");
+			}
+			prop = new Properties();
+			prop.load(in);
+			value = prop.getProperty(key);
+			in.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return value;
+	}
 	
 	
 	

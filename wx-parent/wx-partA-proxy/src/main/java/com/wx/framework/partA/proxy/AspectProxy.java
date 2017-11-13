@@ -1,5 +1,7 @@
 package com.wx.framework.partA.proxy;
 
+import com.wx.framework.partA.model.Resultbean;
+
 import java.lang.reflect.Method;
 
 /**
@@ -9,13 +11,13 @@ public abstract class AspectProxy implements Proxy{
 
     @Override
     public Object doProxy(ProxyChain proxyChain) throws Throwable {
-        Object result;
+        Resultbean result;
         Class<?> targetClass = proxyChain.getTargetClass();
         Method method = proxyChain.getTargetMethod();
         Object[] params = proxyChain.getParams();
 
         before(targetClass, method, params);
-        result = proxyChain.doProxyChain();
+        result = (Resultbean) proxyChain.doProxyChain();
         after(targetClass, method, params);
         return result;
     }

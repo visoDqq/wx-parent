@@ -19,7 +19,6 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * ��ȡӦ�ð�����������
 	 * @return
 	 */
 	public static Set<Class<?>> getClassSet(){
@@ -27,7 +26,6 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * ��ȡӦ�ð���������Service��
 	 * @return
 	 */
 	public static Set<Class<?>> getServiceClassSet(){
@@ -41,7 +39,6 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * ��ȡӦ�ð���������Controller��
 	 * @return
 	 */
 	public static Set<Class<?>> getControllerClassSet(){
@@ -55,7 +52,6 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * ��ȡӦ�ð���������bean��
 	 * @return
 	 */
 	public static Set<Class<?>> getBeanClassSet(){
@@ -66,7 +62,6 @@ public final class ClassHelper {
 	}
 	
 	/**
-	 * ��ȡӦ�ð��������м̳���ĳ�������������
 	 * @param superClass
 	 * @return
 	 */

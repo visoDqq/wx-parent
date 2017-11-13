@@ -10,7 +10,6 @@ public class BeanHelper {
 
 	
 	/**
-	 * ����beanӳ�䣨���ڴ��bean����beanʵ����ӳ���ϵ��
 	 */
 	private static final Map<Class<?>, Object> BEAN_MAP = new HashMap<Class<?>, Object>();
 	
@@ -23,7 +22,6 @@ public class BeanHelper {
 	}
 	
 	/**
-	 * ���beanӳ��
 	 * @return
 	 */
 	public static Map<Class<?>, Object> getBeanMap(){

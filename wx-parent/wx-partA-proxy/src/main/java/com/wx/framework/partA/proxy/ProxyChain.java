@@ -49,6 +49,9 @@ public class ProxyChain {
     }
 
     public Object doProxyChain() throws Throwable {
+        if (targetMethod.getName().equals("toString") || targetMethod.getName().equals("hashCode") ){
+            return null;
+        }
         Object result;
         if (index < proxyList.size()){
             result = proxyList.get(index++).doProxy(this);

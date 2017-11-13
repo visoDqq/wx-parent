@@ -17,6 +17,11 @@
       <artifactId>wx-partA-api</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>com.wx.framework</groupId>
+      <artifactId>wx-partA-service</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
   	<dependency>
       <groupId>com.wx.framework</groupId>
       <artifactId>wx-common</artifactId>
@@ -35,6 +40,11 @@
     <dependency>
       <groupId>com.wx.framework</groupId>
       <artifactId>wx-partA-proxy</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.wx.framework</groupId>
+      <artifactId>wx-partA-database</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
